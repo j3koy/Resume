@@ -1,193 +1,252 @@
 /* ================= GLOBAL RESET ================= */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html,
 body {
-    height: 100%;
+  height: 100%;
 }
 
 body {
-    display: flex;
-    flex-direction: column;
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    color: #333;
+  display: flex;
+  flex-direction: column;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
 }
 
 /* ================= DIV 1 ================= */
 #div1 {
-    background-color: #f9f8f6;
-    display: flex;
-    align-items: center;
-    padding: 15px 25px;
-    height: 150px;
-    border-bottom: 3px solid #c9b59c;
+  background-color: #f9f8f6;
+  display: flex;
+  align-items: center;
+  padding: 15px 25px;
+  height: 150px;
+  border-bottom: 3px solid #c9b59c;
+  justify-content: center;
 }
 
 .div1-left {
-    flex: 0 0 120px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  flex: 0 0 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .div1-left img {
-    width: 120px;
-    border: 1px solid black;
-    border-radius: 5px;
+  width: 120px;
+  border: 1px solid black;
+  border-radius: 5px;
 }
 
 .div1-right {
-    flex: 1;
-    padding-left: 25px;
+  flex: 1;
+  padding-left: 25px;
 }
 
 .div1-right h1 {
-    font-size: 1.8rem;
-    font-family: Optima, sans-serif;
-    margin-bottom: 5px;
+  font-size: 1.8rem;
+  font-family: Optima, sans-serif;
+  margin-bottom: 5px;
 }
 
 .div1-right p {
-    text-align: justify;
-    font-size: 0.9rem;
-    color: #444;
+  text-align: justify;
+  font-size: 0.9rem;
+  color: #444;
 }
 
 /* ================= CONTAINER ================= */
 #container {
-    display: flex;
-    flex: 1;
+  display: flex;
+  flex: 1;
 }
 
 /* ================= DIV 2 ================= */
 #div2 {
-    background-color: #efe9e3;
-    width: 35%;
-    padding: 25px 20px;
+  background-color: #efe9e3;
+  width: 35%;
+  padding: 25px 20px;
 }
 
 #div2 h3 {
-    font-weight: bold;
-    margin-top: 20px;
-    margin-bottom: 8px;
-    border-bottom: 2px solid #c9b59c;
-    padding-bottom: 4px;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 8px;
+  border-bottom: 2px solid #c9b59c;
+  padding-bottom: 4px;
 }
 
 #div2 table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
 }
 
 #div2 td {
-    padding: 6px 10px;
-    vertical-align: top;
+  padding: 6px 10px;
+  vertical-align: top;
 }
 
 #div2 table td:first-child {
-    font-weight: bold;
-    width: 150px;
+  font-weight: bold;
+  width: 150px;
 }
 
 /* ================= DIV 3 ================= */
 #div3 {
-    background-color: #d9cfc7;
-    width: 65%;
-    padding: 25px 30px;
+  background-color: #d9cfc7;
+  width: 65%;
+  padding: 25px 30px;
 }
 
 #div3 h3 {
-    margin-top: 20px;
-    margin-bottom: 10px;
-    border-bottom: 2px solid #b39b7d;
-    padding-bottom: 4px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #b39b7d;
+  padding-bottom: 4px;
 }
 
 #div3 h4 {
-    font-weight: bold;
-    margin-top: 15px;
-    margin-bottom: 5px;
+  font-weight: bold;
+  margin-top: 15px;
+  margin-bottom: 5px;
 }
 
 #div3 p {
-    margin-left: 20px;
-    margin-bottom: 6px;
+  margin-left: 20px;
+  margin-bottom: 6px;
 }
 
 #div3 ul {
-    margin-left: 40px;
+  margin-left: 40px;
 }
 
 #div3 li {
-    margin-bottom: 6px;
+  margin-bottom: 6px;
 }
 
 .italic {
-    font-style: italic;
+  font-style: italic;
+}
+/* ================= Button ======================== */
+.button {
+  position: absolute;
+  top: 87%;
+  left: 89%;
+  border: none;
+  color: black;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 17px;
+  cursor: pointer;
+  background: transparent;
+  border: 3.3px solid #c9b59c;
+}
+
+.button:hover {
+  background-color: #c9b59c;
+  color: black;
 }
 
 /* ================= DIV 4 (FOOTER) ================= */
 #div4 {
-    background-color: #c9b59c;
-    padding: 20px 30px;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 20px;
+  background-color: #c9b59c;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 /* Remove vertical stacking look */
 #div4 h3 {
-    display: none;
+  display: none;
 }
 
 /* Footer items */
 #div4 p {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 0.95rem;
-    transition: transform 0.3s ease;
-    position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.95rem;
+  transition: transform 0.3s ease;
+  position: relative;
 }
 
 /* Icons */
 #div4 i {
-    font-size: 1.2rem;
+  font-size: 1.2rem;
 }
 
 /* Links and text */
 #div4 a {
-    color: #000;
-    text-decoration: none;
-    position: relative;
+  color: #000;
+  text-decoration: none;
+  position: relative;
 }
 
 /* Underline animation */
 #div4 a::after,
 #div4 p::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -4px;
-    width: 0;
-    height: 2px;
-    background-color: #5a3e2b;
-    transition: width 0.3s ease;
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background-color: #5a3e2b;
+  transition: width 0.3s ease;
 }
 
 /* Hover effect */
 #div4 p:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 #div4 p:hover::after,
 #div4 p:hover a::after {
-    width: 100%;
+  width: 100%;
+}
+
+/* ================= EXPERIENCE PAGE ================= */
+
+#experience-container {
+  background-color: #d9cfc7;
+  padding: 40px 60px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 3px solid #c9b59c;
+  gap: 75px;
+}
+
+.job-box {
+  background-color: #e8e2db;
+  display: flex;
+  align-items: center;
+  padding: 25px 30px;
+  gap: 30px;
+  border: 3px solid #c9b59c;
+}
+
+.job-box img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  background-color: transparent;
+  padding: 10px;
+}
+
+.job-text h3 {
+  margin-bottom: 8px;
+}
+
+.job-text p {
+  text-align: justify;
+  font-size: 0.95rem;
 }
