@@ -1,4 +1,3 @@
-/* ================= GLOBAL RESET ================= */
 * {
   margin: 0;
   padding: 0;
@@ -8,6 +7,7 @@
 html,
 body {
   height: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -15,17 +15,29 @@ body {
   flex-direction: column;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: #333;
+  background: #f4f1ec;
+  opacity: 0;
+  transition: opacity 0.45s ease;
 }
 
-/* ================= DIV 1 ================= */
+body.page-loaded {
+  opacity: 1;
+}
+
+body.page-exit {
+  opacity: 0;
+}
+
 #div1 {
   background-color: #f9f8f6;
   display: flex;
   align-items: center;
   padding: 15px 25px;
-  height: 150px;
+  min-height: 150px;
   border-bottom: 3px solid #c9b59c;
   justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
 .div1-left {
@@ -43,6 +55,7 @@ body {
 
 .div1-right {
   flex: 1;
+  min-width: 280px;
   padding-left: 25px;
 }
 
@@ -56,15 +69,15 @@ body {
   text-align: justify;
   font-size: 0.9rem;
   color: #444;
+  line-height: 1.5;
 }
 
-/* ================= CONTAINER ================= */
 #container {
   display: flex;
   flex: 1;
+  width: 100%;
 }
 
-/* ================= DIV 2 ================= */
 #div2 {
   background-color: #efe9e3;
   width: 35%;
@@ -95,7 +108,6 @@ body {
   width: 150px;
 }
 
-/* ================= DIV 3 ================= */
 #div3 {
   background-color: #d9cfc7;
   width: 65%;
@@ -131,12 +143,12 @@ body {
 .italic {
   font-style: italic;
 }
-/* ================= Button ======================== */
+
 .button {
-  position: absolute;
-  top: 87%;
-  left: 89%;
-  border: none;
+  position: fixed;
+  right: 20px;
+  bottom: 7.5%;
+  border: 3.3px solid #c9b59c;
   color: black;
   padding: 16px 32px;
   text-align: center;
@@ -144,15 +156,31 @@ body {
   font-size: 17px;
   cursor: pointer;
   background: transparent;
-  border: 3.3px solid #c9b59c;
+  display: inline-block;
+  z-index: 1000;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition:
+    transform 0.25s ease,
+    background-color 0.25s ease,
+    color 0.25s ease,
+    opacity 0.25s ease;
+}
+
+.button.show-button {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
 }
 
 .button:hover {
   background-color: #c9b59c;
   color: black;
+  transform: translateY(0) scale(1.04);
 }
 
-/* ================= DIV 4 (FOOTER) ================= */
 #div4 {
   background-color: #c9b59c;
   padding: 15px 30px;
@@ -163,12 +191,10 @@ body {
   gap: 20px;
 }
 
-/* Remove vertical stacking look */
 #div4 h3 {
   display: none;
 }
 
-/* Footer items */
 #div4 p {
   display: flex;
   align-items: center;
@@ -176,21 +202,19 @@ body {
   font-size: 0.95rem;
   transition: transform 0.3s ease;
   position: relative;
+  cursor: pointer;
 }
 
-/* Icons */
 #div4 i {
   font-size: 1.2rem;
 }
 
-/* Links and text */
 #div4 a {
   color: #000;
   text-decoration: none;
   position: relative;
 }
 
-/* Underline animation */
 #div4 a::after,
 #div4 p::after {
   content: "";
@@ -203,9 +227,8 @@ body {
   transition: width 0.3s ease;
 }
 
-/* Hover effect */
 #div4 p:hover {
-  transform: scale(1.1);
+  transform: scale(1.08);
 }
 
 #div4 p:hover::after,
@@ -213,16 +236,14 @@ body {
   width: 100%;
 }
 
-/* ================= EXPERIENCE PAGE ================= */
-
 #experience-container {
   background-color: #d9cfc7;
   padding: 40px 60px;
-  height: 100%;
+  flex: 1;
   display: flex;
   flex-direction: column;
   border-bottom: 3px solid #c9b59c;
-  gap: 75px;
+  gap: 35px;
 }
 
 .job-box {
@@ -232,6 +253,30 @@ body {
   padding: 25px 30px;
   gap: 30px;
   border: 3px solid #c9b59c;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.job-box::before {
+  content: "+";
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #7a5a42;
+  transition: transform 0.3s ease;
+}
+
+.job-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
 }
 
 .job-box img {
@@ -240,13 +285,196 @@ body {
   object-fit: contain;
   background-color: transparent;
   padding: 10px;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.job-box:hover img {
+  transform: scale(1.05);
 }
 
 .job-text h3 {
   margin-bottom: 8px;
+  transition: color 0.3s ease;
 }
 
 .job-text p {
   text-align: justify;
   font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.job-extra {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-8px);
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 1px solid transparent;
+  transition:
+    max-height 0.45s ease,
+    opacity 0.35s ease,
+    transform 0.35s ease,
+    margin-top 0.35s ease,
+    padding-top 0.35s ease,
+    border-top-color 0.35s ease;
+}
+
+.job-box.active {
+  background-color: #f0ebe6;
+  border-color: #b7916f;
+}
+
+.job-box.active::before {
+  content: "−";
+  transform: rotate(180deg);
+}
+
+.job-box.active .job-text h3 {
+  color: #6a4a34;
+}
+
+.job-box.active .job-extra {
+  max-height: 120px;
+  opacity: 1;
+  transform: translateY(0);
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top-color: #c9b59c;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#toast {
+  position: fixed;
+  left: 50%;
+  bottom: 22px;
+  transform: translateX(-50%) translateY(20px);
+  background: #2f2f2f;
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+  z-index: 1000;
+}
+
+#toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+@media screen and (max-width: 900px) {
+  #div1 {
+    flex-direction: column;
+    height: auto;
+    text-align: center;
+  }
+
+  .div1-left {
+    margin-bottom: 10px;
+  }
+
+  .div1-right {
+    padding-left: 0;
+  }
+
+  #container {
+    flex-direction: column;
+  }
+
+  #div2,
+  #div3 {
+    width: 100%;
+  }
+
+  #experience-container {
+    padding: 20px;
+  }
+
+  .job-box {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .job-box img {
+    width: 80px;
+    height: 80px;
+  }
+
+  #div4 {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .button {
+    right: 14px;
+    bottom: 14px;
+    padding: 13px 22px;
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .div1-right h1 {
+    font-size: 1.4rem;
+  }
+
+  .div1-right p {
+    font-size: 0.85rem;
+  }
+
+  #div2,
+  #div3,
+  #experience-container {
+    padding: 15px;
+  }
+
+  #div2 table td:first-child {
+    width: 110px;
+  }
+
+  #div4 p {
+    font-size: 0.85rem;
+  }
+
+  .button {
+    right: 10px;
+    bottom: 10px;
+    padding: 11px 18px;
+    font-size: 14px;
+    border-width: 2px;
+  }
+
+  .job-text p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body,
+  .button,
+  .job-box,
+  #div4 p,
+  #toast,
+  .reveal,
+  .job-extra {
+    transition: none !important;
+  }
 }
